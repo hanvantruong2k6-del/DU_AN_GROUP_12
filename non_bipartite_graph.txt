@@ -1,0 +1,16 @@
+# Do thi vo huong 8 dinh, co AN 1 chu trinh do dai le (C-D-F-G-C do dai 4? kiem tra ky)
+# thuc te: C-D-E-F-C la chu trinh do dai 5 (le) an trong do thi lon hon -> KHONG hai phia
+8
+undirected
+unweighted
+labels: A B C D E F G H
+0 1
+1 2
+2 3
+3 4
+4 5
+5 2
+5 6
+6 7
+7 0
+3 7

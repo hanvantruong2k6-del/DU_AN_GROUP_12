@@ -1,0 +1,17 @@
+# Do thi vo huong hai phia, 8 dinh: {A,C,E,G} - {B,D,F,H}, nhieu canh cheo de khong "nhin la thay"
+8
+undirected
+unweighted
+labels: A B C D E F G H
+0 1
+0 3
+0 5
+2 1
+2 5
+2 7
+4 3
+4 7
+4 1
+6 5
+6 7
+6 3

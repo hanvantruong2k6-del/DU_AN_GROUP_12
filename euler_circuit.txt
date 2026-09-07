@@ -1,0 +1,12 @@
+# Do thi vo huong dang "hai tam giac chung dinh A" -> MOI dinh bac chan -> ton tai CHU TRINH EULER
+# Bac: A=4, B=2, C=2, D=2, E=2
+5
+undirected
+unweighted
+labels: A B C D E
+0 1
+1 2
+2 0
+0 3
+3 4
+4 0

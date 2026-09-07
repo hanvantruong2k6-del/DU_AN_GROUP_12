@@ -1,0 +1,20 @@
+# Do thi vo huong co trong so, 9 dinh, 14 canh -> Prim & Kruskal
+9
+undirected
+weighted
+labels: A B C D E F G H I
+0 1 4
+0 2 8
+1 2 6
+1 3 9
+2 4 2
+2 3 7
+3 4 5
+3 5 10
+4 5 3
+4 6 8
+5 6 6
+5 7 7
+6 7 4
+6 8 9
+7 8 2
