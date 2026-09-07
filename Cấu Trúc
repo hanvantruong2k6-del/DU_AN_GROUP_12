@@ -1,0 +1,15 @@
+graph_project/
+├── src/
+│   ├── graph.py            # Lop Graph, 3 cach bieu dien, doc file
+│   ├── traversal.py        # BFS, DFS
+│   ├── bipartite.py        # Kiem tra do thi hai phia
+│   ├── shortest_path.py    # Dijkstra, Bellman-Ford
+│   ├── euler.py            # Kiem tra dieu kien Euler, Fleury, Hierholzer
+│   ├── mst.py              # Prim, Kruskal, Union-Find
+│   ├── maxflow.py          # Ford-Fulkerson
+│   ├── chinese_postman.py  # Bai toan Nguoi phat thu Trung Quoc (Phan 8)
+│   ├── visualize.py        # Truc quan hoa (matplotlib/networkx)
+│   ├── real_world.py       # Kich ban ung dung thuc te (Phan 8)
+│   └── main.py             # Chuong trinh demo tong hop
+├── samples/                # Cac file do thi mau (8-10 dinh) cho tung thuat toan
+└── outputs/                # Hinh anh + log ket qua chay demo
