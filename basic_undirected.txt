@@ -1,5 +1,5 @@
 # Do thi vo huong dung cho: 3 cach bieu dien, BFS, DFS
-# 10 dinh, 14 canh - co nhanh re va chu trinh, khong "nhin la doan ra ket qua"
+# Gom: 10 dinh, 14 canh 
 10
 undirected
 unweighted

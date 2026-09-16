@@ -1,4 +1,4 @@
-# Do thi co huong, 9 dinh, 16 canh trong so KHONG AM -> Dijkstra
+# Do thi co huong, 9 dinh, 16 canh trong so " khgong am" -> Dijkstra
 9
 directed
 weighted

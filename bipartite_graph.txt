@@ -1,4 +1,4 @@
-# Do thi vo huong hai phia, 8 dinh: {A,C,E,G} - {B,D,F,H}, nhieu canh cheo de khong "nhin la thay"
+# Do thi vo huong hai phia, gom 8 dinh: {A,C,E,G} - {B,D,F,H}
 8
 undirected
 unweighted

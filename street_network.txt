@@ -1,0 +1,19 @@
+# Mang luoi duong pho khu vuc: 8 giao lo, 12 doan duong, trong so = do dai (m)
+# Garage(0) la bai do xe. Do thi nay khong thoa dieu kien Euler (co 6 dinh bac le)
+# -> can dung ham diu phoi route_orchestrator (ghep cap + nhan doi duong ngan nhat) o Phan 8
+8
+undirected
+weighted
+labels: Garage A B C D E F G
+0 1 150
+0 2 200
+1 3 180
+1 4 220
+2 4 170
+2 5 190
+3 4 160
+3 6 210
+4 5 140
+5 7 230
+6 7 200
+4 6 250

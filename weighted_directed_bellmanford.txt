@@ -1,4 +1,4 @@
-# Do thi co huong, 8 dinh, 14 canh, co canh AM nhung KHONG co chu trinh am -> Bellman-Ford
+# Do thi co huong, 8 dinh, 14 canh, co canh am nhung khong co chu trinh am -> Bellman-Ford
 8
 directed
 weighted

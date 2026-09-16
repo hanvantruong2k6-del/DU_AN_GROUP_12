@@ -1,4 +1,4 @@
-# Do thi vo huong co trong so, 9 dinh, 14 canh -> Prim & Kruskal
+# Do thi vo huong co trong so, 9 dinh, 14 canh -> dung cả 2 thuat toan: Prim & Kruskal
 9
 undirected
 weighted

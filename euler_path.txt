@@ -1,4 +1,4 @@
-# Do thi vo huong co dung 2 dinh bac le -> ton tai DUONG DI EULER (khong phai chu trinh)
+# Do thi vo huong co dung 2 dinh bac le -> ton tai "DUONG DI EULER" (khong phai chu trinh)
 4
 undirected
 unweighted
