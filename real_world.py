@@ -1,44 +1,44 @@
-# -*- coding: utf-8 -*-
 """
-real_world.py
 BAI TOAN THUC TE (Phan 8): TOI UU LO TRINH XE QUET RAC (STREET SWEEPING)
-bang bai toan NGUOI PHAT THU TRUNG QUOC (Chinese Postman Problem), su dung
-thuat toan Euler (Hierholzer) lam nen tang.
+- xu ly bang cach ket hop 3 thuat toan da cai dat: DIJKSTRA, GHEP CAP TRONG
+SO NHO NHAT (tu cai bang backtracking), va HIERHOLZER.
 
 MO TA BAI TOAN:
-- Mot cong ty ve sinh do thi co 1 xe quet rac can di qua TAT CA cac con
+- Mot cong ty ve sinh, cu the do thi co 1 xe quet rac can di qua all cac con
   duong trong 1 khu pho de quet don / thu gom rac hai ben duong.
-- Khac voi bai toan giao hang (chi can DEN TUNG DIEM), bai toan quet rac can
-  DI QUA HET MOI DOAN DUONG - day la diem mau chot khien bai toan nay la
-  bai toan tren CANH (edge) chu khong phai tren DINH (vertex) nhu Dijkstra.
-- Xe xuat phat va PHAI QUAY VE dung bai do (garage) sau khi hoan thanh,
-  sao cho TON IT QUANG DUONG DI THUA (di lai / khong quet) nhat co the.
+- Day la bai toan tren canh (edge) cua do thi: phai di qua het moi doan duong, khac voi bai toan tim duong ngan nhat o Phan 5 (Dijkstra,
+  Bellman-Ford) la chi can den dung 1 dinh dich.
+- Xe xuat phat va back dung bai do (garage) sau khi hoan thanh,
+  sao cho ton it quang duong di thua (di lai / khong quet) it nhat co the.
 
 MO HINH HOA THANH DO THI:
     + Moi giao lo (nga ba/nga tu) trong khu pho  = 1 DINH (node)
     + Moi doan duong can quet                    = 1 CANH (edge), VO HUONG
-    + Do dai doan duong (met)                    = TRONG SO cua canh
+    + Do dai doan duong (m)                    = TRONG SO CUA CANH
     + Bai do xe (garage)                         = dinh xuat phat/ket thuc
-    + Can tim: 1 CHU TRINH di qua MOI CANH DUNG 1 LAN, bat dau/ket thuc tai
-      garage, voi TONG QUANG DUONG DI THUA (deadhead) la NHO NHAT.
-    => Day chinh la bai toan CHU TRINH EULER mo rong (Chinese Postman).
+    + Can tim: 1 chu trinh di qua mot canh dung 1 lan, bat dau/ket thuc tai
+      garage, voi tong quang duong di thua (deadhead) la MIX
+      => Day chinh la bai toan:: CHU TRINH EULER MO RONG.
 
-DIEM MAU CHOT - VI SAO KHONG THE CHAY EULER TRUC TIEP:
-    Voi mang luoi duong pho THUC TE, hau nhu KHONG BAO GIO tat ca giao lo
-    deu co bac chan. Vi du minh hoa trong file nay co toi 6/8 dinh bac le
-    (Handshaking Lemma dam bao so dinh bac le luon la SO CHAN). Do do KHONG
-    THE ap dung Fleury/Hierholzer truc tiep - day chinh la ly do can them
-    buoc "nang cao": GHEP CAP CAC DINH BAC LE + NHAN DOI DUONG DI NGAN NHAT
-    (dung lai Dijkstra) DE BIEN DO THI THANH CO CHU TRINH EULER, roi moi
-    chay Hierholzer (xem chi tiet trong module chinese_postman.py).
+Quan trọng - VI SAO KHONG THE CHAY EULER TRUC TIEP:
+    Voi mang luoi duong pho " thuc te", hau nhu khong bao giotat ca giao lo
+    deu co bac chan. Vi du trong file nay co toi 6/8 dinh bac le
+    (Handshaking Lemma dam bao so dinh bac le luon la "SO CHAN"). Do vay khong the ap dung Fleury/Hierholzer truc tiep - day chinh la ly do can them 
+    ham dieu phoi "route_orchestrator.py", ket hop 3 thuat toan:
+      (1) DIJKSTRA tinh khoang cach ngan nhat giua cac dinh bac le
+      (2) Ghep căp trong so nho nhat tren tap
+          dinh bac le, dung khoang cach vua tinh lam trong so
+      (3) X2 cac canh tren duong di ngan nhat cua tung cap da ghep,
+          roi chay HIERHOLZER tren do thi da "tang cuong" (moi dinh gio
+          deu bac chan) de tim chu trinh Euler)
 """
 import os
 from graph import Graph
 from euler import has_eulerian
-from chinese_postman import chinese_postman
+from route_orchestrator import optimize_route
 
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
-_DEFAULT_SAMPLE = os.path.join(_THIS_DIR, "..", "samples", "street_network_cpp.txt")
+_DEFAULT_SAMPLE = os.path.join(_THIS_DIR, "..", "samples", "street_network.txt")
 _DEFAULT_OUT = os.path.join(_THIS_DIR, "..", "outputs")
 
 
@@ -60,13 +60,13 @@ def run_demo(save_dir=_DEFAULT_OUT):
     deg = [len(g.adj[v]) for v in range(g.n)]
     odd = [g.labels[v] for v in range(g.n) if deg[v] % 2 == 1]
     print(f"\nBac cua tung giao lo: {[(g.labels[v], deg[v]) for v in range(g.n)]}")
-    print(f"So giao lo bac le: {len(odd)} -> {odd}  (KHONG thoa dieu kien Euler, can xu ly nang cao)")
+    print(f"So giao lo bac le: {len(odd)} -> {odd}  (khong thoa dieu kien Euler, can xu ly nang cao)")
 
     status, _ = has_eulerian(g)
-    print(f"Kiem tra dieu kien Euler truc tiep: {status} -> phai dung Chinese Postman Problem")
+    print(f"Kiem tra dieu kien Euler truc tiep: {status} -> phai dung Dijkstra + Ghep cap trong so nho nhat + Hierholzer")
 
-    print("\n--- Ap dung Chinese Postman Problem ---")
-    result = chinese_postman(g, start=garage, verbose=True)
+    print("\n--- Ap dung: Dijkstra + Ghep cap trong so nho nhat + Hierholzer ---")
+    result = optimize_route(g, start=garage, verbose=True)
 
     circuit = result["circuit"]
     print("\nKET QUA LO TRINH TOI UU CHO XE QUET RAC:")
@@ -79,11 +79,11 @@ def run_demo(save_dir=_DEFAULT_OUT):
     viz.draw_graph(g, title="Mang luoi duong pho khu vuc (Garage = diem xuat phat)",
                     save_path=f"{save_dir}/real_world_street_network.png")
 
-    viz.draw_cpp_matching(g, result["odd_vertices"], result["matching"], result["duplicated_edges"],
-                           save_path=f"{save_dir}/real_world_cpp_matching.png")
+    viz.draw_matching_result(g, result["odd_vertices"], result["matching"], result["duplicated_edges"],
+                           save_path=f"{save_dir}/real_world_matching_result.png")
 
-    viz.draw_cpp_route(g, circuit, result["total_distance"],
-                        save_path=f"{save_dir}/real_world_cpp_route.png")
+    viz.draw_optimized_route(g, circuit, result["total_distance"],
+                        save_path=f"{save_dir}/real_world_optimized_route.png")
 
     return g, result
 

@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-euler.py
 Thuat toan Fleury va Hierholzer tim chu trinh / duong di Euler.
-Tu cai dat, khong dung thu vien do thi co san.
 """
 
 
@@ -16,7 +14,7 @@ def _degree_check_undirected(graph):
 def has_eulerian(graph):
     """
     Tra ve ('circuit'|'path'|'none', danh sach dinh bac le)
-    Chi ho tro day du cho do thi vo huong (pho bien trong bai tap).
+    Chi ho tro day du cho do thi vo huong.
     """
     # kiem tra do thi lien thong tren cac dinh co bac > 0
     nonzero = [u for u in range(graph.n) if len(graph.adj[u]) > 0]
@@ -43,9 +41,8 @@ def has_eulerian(graph):
         return "none", odd
 
 
-# ---------------------------------------------------------------------
 # FLEURY'S ALGORITHM
-# ---------------------------------------------------------------------
+
 def _count_reachable(adj_copy, u, n):
     visited = [False] * n
     stack = [u]
@@ -131,9 +128,7 @@ def fleury(graph, start=None, verbose=False):
     return path
 
 
-# ---------------------------------------------------------------------
 # HIERHOLZER'S ALGORITHM
-# ---------------------------------------------------------------------
 def hierholzer(graph, start=None, verbose=False):
     """
     Thuat toan Hierholzer tim chu trinh/duong di Euler - hieu qua O(E).

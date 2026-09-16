@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
 """
-traversal.py
-BFS va DFS tu xay dung (khong dung thu vien co san: tu cai dat queue/stack bang list).
+BFS va DFS tu xay dung (tu cai queue/stack bang list).
 """
 
 
@@ -28,7 +26,7 @@ def bfs(graph, start):
 
 
 def dfs(graph, start):
-    """Duyet do thi theo chieu sau tu dinh 'start' (dung stack tu cai dat, khong de quy)."""
+    """Duyet do thi theo chieu sau tu dinh 'start' (dung stack tu cai, khong de quy)."""
     visited = [False] * graph.n
     parent = [-1] * graph.n
     order = []

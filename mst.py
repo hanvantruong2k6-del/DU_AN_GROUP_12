@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
 """
 mst.py
 Thuat toan Prim va Kruskal tim cay khung nho nhat (Minimum Spanning Tree).
-Tu cai dat: Union-Find (Kruskal) va chon min tuyen tinh (Prim), khong dung
-thu vien do thi/heapq co san.
+cai: Union-Find (Kruskal) va chon min tuyen tinh (Prim)
 """
 
 INF = float("inf")

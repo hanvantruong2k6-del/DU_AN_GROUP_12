@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-graph.py
-Cau truc du lieu Graph tu xay dung (khong dung thu vien do thi co san).
-Ho tro:
  - Do thi vo huong / co huong
  - Do thi co trong so / khong trong so
  - Chuyen doi qua lai: Adjacency Matrix <-> Adjacency List <-> Edge List
- - Doc du lieu tu file text theo dinh dang don gian
+ - Doc du lieu tu file text 
 """
 
 INF = float("inf")
@@ -24,9 +21,8 @@ class Graph:
         # danh sach canh (u, v, w) - moi canh luu 1 lan (ke ca do thi vo huong)
         self.edge_list = []
 
-    # ---------------------------------------------------------------
     # Xay dung do thi
-    # ---------------------------------------------------------------
+
     def add_edge(self, u, v, w=1):
         if u < 0 or u >= self.n or v < 0 or v >= self.n:
             raise ValueError(f"Dinh khong hop le: ({u},{v})")
@@ -84,9 +80,8 @@ class Graph:
             g.add_edge(u, v, w)
         return g
 
-    # ---------------------------------------------------------------
+
     # 3 cach bieu dien - chuyen doi qua lai
-    # ---------------------------------------------------------------
     def to_adjacency_matrix(self):
         mat = [[0 if self.weighted else 0 for _ in range(self.n)] for _ in range(self.n)]
         # dung 0 nghia la khong co canh; neu weighted va can phan biet, dung INF cho "khong co canh"
@@ -128,9 +123,8 @@ class Graph:
             g.add_edge(u, v, w)
         return g
 
-    # ---------------------------------------------------------------
     # In cac dang bieu dien ra man hinh
-    # ---------------------------------------------------------------
+
     def print_adjacency_matrix(self):
         mat = self.to_adjacency_matrix()
         header = "     " + " ".join(f"{self.labels[j]:>5}" for j in range(self.n))

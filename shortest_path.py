@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
 """
-shortest_path.py
 Dijkstra va Bellman-Ford tu xay dung tu dau (khong dung heapq, khong dung
 thu vien do thi co san). Dijkstra dung "min tuyen tinh" O(V^2), phu hop de
 sinh vien doi chieu voi ket qua chay tay tung buoc (co in ra tung vong lap).

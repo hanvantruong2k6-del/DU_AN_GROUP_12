@@ -1,11 +1,8 @@
-# -*- coding: utf-8 -*-
 """
-visualize.py
-Phan TRUC QUAN HOA - duy nhat phan nay duoc phep dung thu vien co san
-(matplotlib de ve, networkx CHI de tinh toa do bo tri dinh - layout).
+PHAN TRUC QUAN HOA - phan nay cai thu vien
+(matplotlib va networkx co san de tinh toa do bo tri dinh - layout).
 Tat ca thuat toan (BFS/DFS/Dijkstra/Bellman-Ford/Prim/Kruskal/Fleury/
-Hierholzer/Ford-Fulkerson) deu duoc tinh boi code tu viet trong cac
-module khac; o day chi nhan KET QUA da tinh san va ve minh hoa.
+Hierholzer); lop nay chi nhan "KET QUA" da tinh san va ve minh hoa.
 """
 import matplotlib
 matplotlib.use("Agg")
@@ -120,17 +117,17 @@ def draw_shortest_path(graph, path, dist_target, algo_name, src, dst, save_path)
                save_path=save_path)
 
 
-def draw_cpp_matching(graph, odd_vertices, matching, duplicated_edges, save_path):
+def draw_matching_result(graph, odd_vertices, matching, duplicated_edges, save_path):
     """Ve do thi goc, danh dau cac dinh bac le va cac canh bi nhan doi do ghep cap (CPP)."""
     node_colors = {v: "#e63946" for v in odd_vertices}
     dup_edges_uv = [(u, v) for (u, v, w) in duplicated_edges]
-    title = "Chinese Postman: dinh bac le (do) va canh nhan doi do ghep cap (do dam)"
+    title = "Ghep cap dinh bac le (do) va canh nhan doi do ghep cap (do dam)"
     draw_graph(graph, highlight_edges=dup_edges_uv, node_colors=node_colors,
                title=title, save_path=save_path)
 
 
-def draw_cpp_route(graph, circuit, total_distance, save_path):
-    """Ve lo trinh Chinese Postman hoan chinh (co the lap lai canh do di lai)."""
+def draw_optimized_route(graph, circuit, total_distance, save_path):
+    """Ve lo trinh toi uu hoan chinh (co the lap lai canh do di lai)."""
     G, pos = _build_nx_layout(graph)
     fig, ax = plt.subplots(figsize=(8, 6))
 
@@ -142,7 +139,7 @@ def draw_cpp_route(graph, circuit, total_distance, save_path):
                             edge_color="#cccccc")
 
     # ve lo trinh nhu mot chuoi mui ten danh so thu tu, dung do cong (curvature)
-    # tang dan khi cung 1 cap dinh duoc di qua nhieu lan (canh bi nhan doi)
+    # tang dan khi cung 1 cap dinh duoc di qua nhieu lan (canh bi x2)
     pair_count = {}
     cmap = plt.cm.plasma
     n_steps = len(circuit) - 1
@@ -157,7 +154,7 @@ def draw_cpp_route(graph, circuit, total_distance, save_path):
                                     connectionstyle=f"arc3,rad={rad}",
                                     shrinkA=14, shrinkB=14))
 
-    ax.set_title(f"Lo trinh Chinese Postman (tong = {total_distance:g} m)", fontsize=13, fontweight="bold")
+    ax.set_title(f"Lo trinh toi uu (Dijkstra + Ghep cap + Hierholzer), tong = {total_distance:g} m", fontsize=13, fontweight="bold")
     ax.axis("off")
     plt.tight_layout()
     plt.savefig(save_path, dpi=150)

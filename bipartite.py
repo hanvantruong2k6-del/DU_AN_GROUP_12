@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
+
 """
-bipartite.py
 Kiem tra do thi hai phia (bipartite) bang thuat toan to mau 2 mau (BFS).
 Ap dung chuan cho do thi vo huong; voi do thi co huong, ta xet do thi
 nen vo huong tuong ung (bo qua chieu canh) vi tinh "hai phia" la khai
