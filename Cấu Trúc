@@ -1,4 +1,4 @@
-graph_project/
+012012204402_Group_12/
 ├── src/
 │   ├── graph.py            # Lop Graph, 3 cach bieu dien, doc file
 │   ├── traversal.py        # BFS, DFS
