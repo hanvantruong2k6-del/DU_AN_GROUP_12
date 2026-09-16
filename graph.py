@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
  - Do thi vo huong / co huong
  - Do thi co trong so / khong trong so
