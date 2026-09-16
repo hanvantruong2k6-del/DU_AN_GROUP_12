@@ -6,8 +6,7 @@ graph_project/
 │   ├── shortest_path.py    # Dijkstra, Bellman-Ford
 │   ├── euler.py            # Kiem tra dieu kien Euler, Fleury, Hierholzer
 │   ├── mst.py              # Prim, Kruskal, Union-Find
-│   ├── maxflow.py          # Ford-Fulkerson
-│   ├── chinese_postman.py  # Bai toan Nguoi phat thu Trung Quoc (Phan 8)
+│   ├── route_orchestrator.py  # Ham dieu phoi (Phan 8)
 │   ├── visualize.py        # Truc quan hoa (matplotlib/networkx)
 │   ├── real_world.py       # Kich ban ung dung thuc te (Phan 8)
 │   └── main.py             # Chuong trinh demo tong hop
