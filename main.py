@@ -22,10 +22,17 @@ def line(title):
 # PHAN 1: Input + Ve + Luu hinh
 def part1_input_and_draw():
     line("PHAN 1: INPUT DO THI, VE VA LUU HINH")
+
     g = Graph.from_file(os.path.join(SAMPLES, "basic_undirected.txt"))
     print(g)
-    save_path = os.path.join(OUT, "part1_input_graph.png")
+    save_path = os.path.join(OUT, "Input_graph_undirected.png")
     viz.draw_graph(g, title="Do thi dau vao (vo huong)", save_path=save_path)
+
+    gd = Graph.from_file(os.path.join(SAMPLES, "basic_directed.txt"))
+    print(gd)
+    save_path_d = os.path.join(OUT, "Input_graph_directed.png")
+    viz.draw_graph(gd, title="Do thi dau vao (co huong)", save_path=save_path_d)
+
     return g
 
 
